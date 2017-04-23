@@ -26,6 +26,8 @@ import instructor.instructorInterface;
 public class MainFacadeInterface extends javax.swing.JFrame {
     
     public static String state;
+    public static String courseName;
+    public static String courseNumber;
     
     public void setState(String systemState)
     {
@@ -36,6 +38,12 @@ public class MainFacadeInterface extends javax.swing.JFrame {
     {
         System.out.println("State:" + state);
         return state;
+    }
+    
+    public void setCourse(String cName, String cNumber)
+    {
+        courseName = cName;
+        courseNumber = cNumber;
     }
     
     /**
@@ -80,6 +88,7 @@ public class MainFacadeInterface extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         jLabel1.setText("Welcome! ");
 
         jLabel2.setText("Online learning made simple with \"Learn All The Things\" academy!");
@@ -98,16 +107,15 @@ public class MainFacadeInterface extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(32, 32, 32))
             .addGroup(layout.createSequentialGroup()
                 .addGap(172, 172, 172)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(administrator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(student, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(instructor, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(administrator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(student, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(instructor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -123,7 +131,7 @@ public class MainFacadeInterface extends javax.swing.JFrame {
                 .addComponent(instructor)
                 .addGap(27, 27, 27)
                 .addComponent(student)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();

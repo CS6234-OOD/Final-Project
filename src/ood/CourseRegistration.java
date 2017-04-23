@@ -1,6 +1,6 @@
 package ood;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class CourseRegistration {
 	 private RegistrationState open;
@@ -11,6 +11,7 @@ public class CourseRegistration {
 	 private Course course;
 	 private ArrayList<Student> registeredStudents; 
 	 private ArrayList<Student> waitlistedStudents;
+	 private List<Observer> observers = new ArrayList<Observer>();
 
 
 	 private int studentLimit;
@@ -28,12 +29,14 @@ public class CourseRegistration {
 	        waitlist = new Waitlist(this);
 	        
 	        currentRegistratonState = open;
+	        notifyAllObservers();
 
 	    }
 
 	    public void setRegistrationState(RegistrationState newState)
 	    {
 	        currentRegistratonState = newState;
+	        notifyAllObservers();
 	    }
 
 	    public RegistrationMessage register(Student newStudent)
@@ -48,9 +51,13 @@ public class CourseRegistration {
 
 	    
 	    // getters for the state
+	    public RegistrationState getCurrentState(){
+	    	return currentRegistratonState;
+	    }
 	    public RegistrationState getOpenState()
 	    {
 	        return open;
+	        
 	    }
 	    
 	    public RegistrationState getClosedState()
@@ -98,6 +105,17 @@ public class CourseRegistration {
 	   public boolean isRegistered(Student existingStudent){
 		   return registeredStudents.contains(existingStudent);
 	   }
+	   
+	   public void attach(Observer observer){
+		   observers.add(observer);
+	    }
+	    
+	    public void notifyAllObservers(){
+	    	for(Observer observer: observers){
+	    		observer.update();
+	    	}
+	    }
+	   
 	   
 
 

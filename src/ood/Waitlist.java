@@ -1,5 +1,4 @@
 package ood;
-
 public class Waitlist implements RegistrationState {
 	
 	private CourseRegistration courseRegistration;
@@ -12,6 +11,7 @@ public class Waitlist implements RegistrationState {
 	public RegistrationMessage register(Student newStudent) {
 		if(!courseRegistration.isWaitlisted(newStudent)){
 			courseRegistration.addWaitlistStudent(newStudent);
+			newStudent.observ(courseRegistration);
 			System.out.println("Student: " + newStudent.name + " has been added to the waiting list.");
                         RegistrationMessage registrationMessage = new RegistrationMessage("Student: " + newStudent.name + " has been added to the waiting list.", "Registration State is waitList");
                         return registrationMessage;

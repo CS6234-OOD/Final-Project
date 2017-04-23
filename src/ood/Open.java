@@ -1,5 +1,4 @@
 package ood;
-
 public class Open implements RegistrationState {
 	
 	private CourseRegistration courseRegistration;
@@ -20,12 +19,14 @@ public class Open implements RegistrationState {
 			if(courseRegistration.getRegisterdStudents() == courseRegistration.getStudentLimit()){
 				if(courseRegistration.allowsWaitlist()){
 					courseRegistration.setRegistrationState(courseRegistration.getWaitlistState());
+					
 					System.out.println("Registration State changed from Open to Waitlist");
                                         RegistrationMessage registrationMessage = new RegistrationMessage("Student: " + newStudent.name + " has been registered", "Registration State changed from Open to Waitlist");
                                         return registrationMessage;
 				}
 				else{
 					courseRegistration.setRegistrationState(courseRegistration.getClosedState());
+				
 					System.out.println("Registration State changed from Open to Closed");
                                         RegistrationMessage registrationMessage = new RegistrationMessage("Student: " + newStudent.name + " has been registered", "Registration State changed from Open to Closed");
                                         return registrationMessage;

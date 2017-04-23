@@ -3,7 +3,10 @@ package instructor;
 import ood.MainFacadeInterface;
 
 public class instructorInterface extends javax.swing.JFrame {
-
+    
+    String courseName = "";
+    String courseNumber = "";
+    boolean newCourseCreated = false;
     /**
      * Creates new form ClassUI
      */
@@ -247,36 +250,36 @@ public class instructorInterface extends javax.swing.JFrame {
                     .addComponent(inputSInstructor))
                 .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 609, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(uiConfimationText, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel12)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(buttonClear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonSubmit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonExit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(44, 44, 44)
                                 .addComponent(jLabel10))
                             .addComponent(jLabel8))
-                        .addGap(193, 193, 193))))
+                        .addGap(156, 156, 156))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonClear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonExit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(12, 12, 12))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(uiConfimationText, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonSubmit)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,14 +341,12 @@ public class instructorInterface extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(uiConfimationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(buttonClear)
                     .addComponent(buttonSubmit)
                     .addComponent(buttonExit)
-                    .addComponent(buttonClear)
                     .addComponent(jButton1))
-                .addContainerGap())
+                .addGap(59, 59, 59))
         );
 
         pack();
@@ -420,6 +421,7 @@ public class instructorInterface extends javax.swing.JFrame {
                 inputCourseUniv.getText(), inputCourseSubject.getText(), 
                 inputSPUloadDate.getText(), inputSPExpDate.getText());
                 uiConfimationText.setText(String.valueOf(myCourseObj.getName())+ " was sucesfully created");
+        newCourseCreated = true;
        }
        else 
        {
@@ -430,6 +432,7 @@ public class instructorInterface extends javax.swing.JFrame {
                    Double.parseDouble(inputSCredit.getText()), 
                    inputSCertification.getText(), inputSInstructor.getSelectedText());
                    uiConfimationText.setText(String.valueOf(myCourseObj.getName())+" was sucesfully created");
+           newCourseCreated = true;
        }
        
     }//GEN-LAST:event_buttonSubmitActionPerformed
@@ -470,6 +473,11 @@ public class instructorInterface extends javax.swing.JFrame {
         
         MainFacadeInterface mainInterface = new MainFacadeInterface();
         //mainInterface.setState(state);
+        if (newCourseCreated)
+        {
+            mainInterface.setCourse(inputCourseName.getText(), "1000");
+        }
+        
         mainInterface.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
