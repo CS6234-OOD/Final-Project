@@ -42,7 +42,32 @@ public class studentInterface extends javax.swing.JFrame {
         
         //state = systemState;        
         coursesList coursesList = new coursesList();
-        jList1.setModel(coursesList.CoursesList());
+        
+        // create a new course
+        /*
+        if (MainFacadeInterface.courseName.length() != 0)
+        {
+            courses newCourse = new courses(Integer.parseInt(MainFacadeInterface.courseNumber), MainFacadeInterface.courseName);
+            //coursesList.courses.add(newCourse);
+        }
+        */
+        //courses newCourse = new courses(Integer.parseInt(MainFacadeInterface.courseNumber), MainFacadeInterface.courseName);
+        //jList1.setModel(coursesList.CoursesList());
+        System.out.println("CourseNameLength");
+        System.out.println(MainFacadeInterface.courseName);
+        //int nameLength = MainFacadeInterface.courseName.length();
+        if(MainFacadeInterface.courseName == null)
+        {
+            System.out.println("NULL");
+            jList1.setModel(coursesList.CoursesList());
+        }
+        //jList1.setModel(coursesList.CoursesList());
+        
+        else
+        {
+            coursesList.addCourse(Integer.parseInt(MainFacadeInterface.courseNumber), MainFacadeInterface.courseName);
+            jList1.setModel(coursesList.CoursesList());
+        }
         
         jButton8.setVisible(false);
         jButton9.setVisible(false);
@@ -52,7 +77,9 @@ public class studentInterface extends javax.swing.JFrame {
         
         //MainFacadeInterface mainInterface = new MainFacadeInterface();
         System.out.println("Student Interface: " + MainFacadeInterface.state);
-        
+        System.out.println("Course name present: " + MainFacadeInterface.courseName);
+        System.out.println("Course number present: " + MainFacadeInterface.courseNumber);
+        System.out.println("Course type present: " + MainFacadeInterface.courseType);
         //System.out.println("Student interface again: " + mainInterface.getSystemState());
         if (MainFacadeInterface.state == "OPEN")
         {

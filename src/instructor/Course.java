@@ -6,16 +6,18 @@ public abstract class Course
     private Double fee;
     private String university;
     private String subject;
+    private String courseNumber;
 
 
     // constructor
-    public Course(String courseType, String n, Double f, String u, String s)
+    public Course(String courseType, String courseNumber, String n, Double f, String u, String s)
     {
         this.courseType = courseType;
         this.name = n;
         this.fee = f;
         this.university = u;
         this.subject = s;
+        this.courseNumber = courseNumber;
     }
 
     public String getType()

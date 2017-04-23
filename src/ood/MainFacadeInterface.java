@@ -28,6 +28,7 @@ public class MainFacadeInterface extends javax.swing.JFrame {
     public static String state;
     public static String courseName;
     public static String courseNumber;
+    public static String courseType;
     
     public void setState(String systemState)
     {
@@ -40,10 +41,37 @@ public class MainFacadeInterface extends javax.swing.JFrame {
         return state;
     }
     
-    public void setCourse(String cName, String cNumber)
+    public String getCourseName()
+    {
+        return courseName;
+    }
+    
+    public String getCourseNumber()
+    {
+        return courseNumber;
+    }
+    
+    public String getCourseType()
+    {
+        return courseType;
+    }
+    
+    public void setCourseName(String cName)
     {
         courseName = cName;
+        //courseNumber = cNumber;
+    }
+    
+    public void setCourseNumber(String cNumber)
+    {
         courseNumber = cNumber;
+        //courseNumber = cNumber;
+    }
+    
+    public void setCourseType(String cType)
+    {
+        courseType = cType;
+        //courseNumber = cNumber;
     }
     
     /**

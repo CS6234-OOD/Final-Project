@@ -7,11 +7,11 @@ public class SemesterCourse extends Course
     private String certification;
     private String instructor;
 
-    public SemesterCourse(String courseType, String n, Double f, String u, String s,
+    public SemesterCourse(String courseType, String courseNumber, String n, Double f, String u, String s,
     String semester, Double duration, Double credits,
     String certification, String instructor)
     {
-        super(courseType, n, f, u, s);
+        super(courseType, courseNumber, n, f, u, s);
         this.semester = semester;
         this.duration = duration;
         this.credits = credits;
