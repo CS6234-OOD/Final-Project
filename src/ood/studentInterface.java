@@ -65,7 +65,7 @@ public class studentInterface extends javax.swing.JFrame {
         
         else
         {
-            coursesList.addCourse(Integer.parseInt(MainFacadeInterface.courseNumber), MainFacadeInterface.courseName);
+            coursesList.addCourse(MainFacadeInterface.courseNumber, MainFacadeInterface.courseName, MainFacadeInterface.courseType);
             jList1.setModel(coursesList.CoursesList());
         }
         
