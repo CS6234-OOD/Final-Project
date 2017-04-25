@@ -51,6 +51,9 @@ public class instructorInterface extends javax.swing.JFrame {
             buttonSubmit.setVisible(false);
             
             jLabel8.setVisible(false);
+            
+            jLabel11.setVisible(false);
+            jTextField1.setVisible(false);
         }
     }
 
